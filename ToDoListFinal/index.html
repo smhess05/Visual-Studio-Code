@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head> 
+        <title>
+            To-Do List
+        </title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <link rel="stylesheet" href="style.css">
+    </head>
+
+    <body>
+
+        <main class="app">
+            <section class="introduction">
+                <h1 class="title">
+                    Hey, <input type="text" id="username" placeholder="Name Here"/>
+                </h1>
+                <h1>
+                    What's on your to-do list?
+                </h1>
+            </section>
+
+            <section class="create_todo">
+                <h2>
+                    Create a To-Do Item:
+                </h2>
+
+                <form id="new_todo_form">
+                    <h3>
+                        What do you need to do?
+
+                        <input 
+                            type="text"
+                            name="content"
+                            id="content"
+                            placeholder="i.e. Exercise..."
+                        />
+                    </h3>
+
+                    <h3>
+                        Pick a category
+                    </h3>
+                    <div class="category">
+                        <label>
+                            <input 
+                                type="radio" 
+                                id="priorityh" 
+                                name="category"
+                                value="High Priority"
+                            />
+
+                            <span class="bubble high"></span>
+                            <div>High Priority</div>
+                        </label>
+
+                        <label>
+                            <input 
+                                type="radio" 
+                                id="priorityl" 
+                                name="category"
+                                value="Low Priority"
+                            />
+
+                            <span class="bubble low"></span>
+                            <div>Low Priority</div>
+                        </label>
+                    </div>
+                    <input type="submit" value="Add To List" />
+                </form>
+            </section>
+
+            <section class="list_todo">
+                <h2>To-Do List:</h2>
+                <div class="list" id="list_todo">
+                 <!--    <div class="item_todo done">
+                        <label>
+                            <input type="checkbox" />
+                            <span class="bubble high"></span>
+                        </label>
+
+                        <div class="content_todo">
+                            <input type="text" value="Go Jim" readonly/>
+                        </div>
+
+                        <div class="options">
+                            <button class="edit">Edit</button>
+                            <button class="delete">Delete</button>
+                        </div>
+
+                    </div> -->
+                </div>
+
+            </section>
+        </main>
+
+        <script src="main.js"></script>
+    </body>

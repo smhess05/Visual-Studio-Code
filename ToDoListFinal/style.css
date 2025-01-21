@@ -1,0 +1,276 @@
+:root
+{
+    --low: #1E90FF;
+    --high: #ff4500;
+    --text: darkslateblue;
+    --background: #EEE;
+    --black: #000000;
+    --grey: #696969;
+    --danger: #DC143C;
+
+    --shadow: 0 1px 3px rgba(49, 49, 84, 0.3);
+
+    --low-glow: 0px 0px 4px rgba(30, 144, 255, 0.75);
+    --high-glow: 0px 0px 4px rgba(255, 69, 0, 0.75);
+    --primary-glow: 0px 0px 4px rgba(72, 61, 139 0.75);
+}
+
+html
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'montserrat', sans-serif;
+}
+
+input:not([type="radio"]):not([type="checkbox"]), button
+{
+    appearance: none;
+    border: none;
+    outline: none;
+    background: none;
+    cursor: initial;
+}
+
+body
+{
+    background: var(--background);
+    color: var(--text);
+    font-weight: 100;
+}
+
+section
+{
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    margin-left: 1.5rem;
+    margin-right: 1.5rem;
+}
+
+h1
+{
+    color: var(--text);
+    margin-top: -1rem;
+
+}
+
+h2
+{
+    color: var(--text);
+    font-size: 1.75rem;
+    font-weight: 200;
+}
+
+h3
+{
+    color: var(--grey);
+    font-size: 0.875rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.introduction .title
+{
+    display: flex;
+}
+
+.introduction .title input
+{
+    margin-left: 0.325rem;
+    flex: 1 1 0%;
+    min-width: 0;
+    margin-top: -1px;
+}
+
+.introduction .title, 
+.introduction .title input
+{
+    color: var(--text);
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.create_todo input[type="text"]
+{
+    display: block;
+    width: 96.5%;
+    font-size: 1.125rem;
+    padding: 1rem 1.5rem;
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+    color: var(--text);
+    background-color: var(--background);
+    border-radius: 0.5rem;
+    box-shadow: var(--shadow);
+}
+
+.create_todo .category
+{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.create_todo .category label
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+    background-color: var(--background);
+    border-radius: 0.5rem;
+    box-shadow: var(--shadow);
+    cursor: pointer;
+}
+
+input[type="radio"],
+input[type="checkbox"]
+{
+    display: none
+
+}
+
+.bubble
+{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 2px solid var(--high);
+    box-shadow: var(--high-glow);
+}
+
+.bubble.low
+{
+    border-color: var(--low);
+    box-shadow: var(--low-glow);
+}
+
+.bubble::after
+{
+    content:"";
+    display: block;
+    opacity: 0;
+    width: 0px;
+    height: 0px;
+    background-color: var(--high);
+    box-shadow: var(--high-glow);
+    border-radius: 50%;
+    transition: 0.2s ease-in-out;
+}
+
+.bubble.low::after
+{
+    background-color: var(--low);
+    box-shadow: var(--low-glow);
+}
+
+input:checked ~ .bubble::after
+{
+    width: 10px;
+    height: 10px;
+    opacity: 1; 
+}
+
+.create_todo .category label div
+{
+    color: var(--text);
+    font-size: 1.125rem;
+    margin-top: 1rem;
+}
+
+.create_todo input[type="submit"]
+{
+    display: block;
+    width: 100%;
+    font-size: 1.125rem;
+    padding: 1rem 1.5rem;
+    color: var(--background);
+    background-color: var(--text);
+    border-radius: 0.5rem;
+    box-shadow: var(--primary-glow);
+    cursor: pointer;
+    transition: 0.2s ease-in-out
+}
+
+.create_todo input[type="submit"]:hover
+{
+    opacity: 0.75;
+}
+
+.list_todo .list
+{
+    margin: 1rem 0;
+}
+
+.list_todo .item_todo
+{
+    display: flex;
+    align-items: center;
+    background-color: var(--background);
+    padding: 1rem;
+    border-radius: 0.5rem;
+    box-shadow: var(--shadow);
+    margin-bottom: 1rem;
+}
+
+.item_todo label
+{
+    display: block;
+    margin-right: 1rem;
+    cursor: pointer;
+}
+
+.item_todo .content_todo
+{
+    flex: 1 1 0%;
+}
+
+.item_todo .content_todo input
+{
+    color: var(--text);
+    font-size: 1.125rem;
+}
+
+.item_todo .options
+{
+    display: flex;
+    align-items: center;
+}
+
+.item_todo .options button
+{
+    display: block;
+    padding: 0.5rem;
+    border-radius: 0.25rem;
+    color: var(--background);
+    cursor: pointer;
+    transition: 0.2s ease-in-out;
+}
+
+.item_todo .options button:hover
+{
+    opacity:0.75;
+}
+
+.item_todo .options .edit
+{
+    margin-right: 0.5rem;
+    background-color: var(--low);
+}
+
+.item_todo .options .delete
+{
+    margin-right: 0.5rem;
+    background-color: var(--danger);
+}
+
+.item_todo.done .content_todo input
+{
+    text-decoration: line-through;
+    color: var(--grey);
+}
